@@ -29,4 +29,8 @@ public class PizzaType {
   private PizzaCategory category;
 
   private String ingredients;
+
+  public PizzaType(String pizzaTypeId) {
+    this.id = pizzaTypeId;
+  }
 }

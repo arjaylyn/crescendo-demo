@@ -33,4 +33,8 @@ public class Pizza {
   private Size size;
 
   private Float price;
+
+  public Pizza(String pizzaId){
+    this.id = pizzaId;
+  }
 }

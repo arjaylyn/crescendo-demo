@@ -17,6 +17,8 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -27,17 +29,25 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Order {
     
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private long id;
+  @NonNull
+  private Long id;
 
+  @NonNull
   private Date date;
+
+  @NonNull
   private Time time;
 
   @OneToMany(fetch = FetchType.EAGER)
   @JoinColumn(name = "order_id")
   @JsonIgnoreProperties("order")
   private List<OrderDetail> details;
+
+  public Order(Long orderId) {
+    this.id = orderId;
+  }
 }

@@ -24,7 +24,6 @@ import lombok.ToString;
 public class OrderDetail {
     
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
   @ManyToOne(fetch = FetchType.LAZY)
